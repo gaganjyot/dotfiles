@@ -1,3 +1,5 @@
+;; Copied from Akshay Shekher : https://github.com/voldyman
+
 ;; activate all the packages (in particular autoloads)
 (package-initialize)
 
