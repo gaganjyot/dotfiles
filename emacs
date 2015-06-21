@@ -1,7 +1,58 @@
-;; Copied from Akshay Shekher : https://github.com/voldyman
-
-;; activate all the packages (in particular autoloads)
+(require 'package)
 (package-initialize)
+;; Add ELPA package repository
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+                         ("marmalade" . "http://marmalade-repo.org/packages/")
+                         ("melpa" . "http://melpa.milkbox.net/packages/")))
+
+
+(setq required-pkgs
+      '(auto-complete
+        color-theme-solarized zenburn-theme
+        go-mode go-eldoc
+        clojure-mode js2-mode
+        markdown-mode php-mode
+        cider idomenu
+        neotree
+        vala-mode
+        web-mode
+        browse-kill-ring
+        anzu ;; show number of search matches
+        ido-vertical-mode
+        paredit  jedi
+        php+-mode
+        python-mode
+        python-django
+        ac-php ac-python
+        ac-html ac-html-bootstrap
+        ac-clang ac-c-headers
+        ace-window cmake-mode
+        coffee-mode color-theme-monokai
+        color-theme-molokai
+        command-t dart-mode
+        function-args
+        gist glsl-mode
+        go-autocomplete
+        go-play
+        lua-mode
+        pomodoro
+        rust-mode
+        smartparens
+        ssh spotify
+        svg django-mode
+        django-snippets
+        dpaste undo-tree
+        redo+))
+
+;; Installs missing packages
+(defun install-missing-packages ()
+  "Installs required packages that are missing"
+  (interactive)
+  (mapc (lambda (package)
+          (or (package-installed-p package)
+              (package-install package)))
+        required-pkgs)
+  (message "Installed all missing packages!"))
 
 ;; No Splash Screen
 (setq inhibit-splash-screen t)
@@ -9,6 +60,9 @@
 ;; Deactivate menu-bar, tool-bar and scroll-bar
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
+(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+
+(set-fringe-mode 0)
 
 ;; Indentation
 (setq-default indent-tabs-mode nil)
@@ -42,7 +96,7 @@
 (ido-vertical-mode t)
 
 ;; my theme
-(load-theme 'sanityinc-tomorrow-eighties t)
+(load-theme 'sanityinc-solarized-dark t)
 (setq linum-format "%4i\u2502")
 
 ;; Enable Auto-Complete
@@ -106,9 +160,9 @@
 
 ;; highlight TODO|FIXME|BUG in comments
 (add-hook 'c-mode-common-hook
-               (lambda ()
-                (font-lock-add-keywords nil
-                                        '(("\\<\\(FIXME\\|TODO\\|BUG\\):" 1 font-lock-warning-face t)))))
+          (lambda ()
+            (font-lock-add-keywords nil
+                                    '(("\\<\\(FIXME\\|TODO\\|BUG\\):" 1 font-lock-warning-face t)))))
 
 ;; better defaults (?)
 (setq x-select-enable-clipboard t
@@ -190,7 +244,7 @@
 
 ;; set font for all windows
 ;;(add-to-list 'default-frame-alist '(font . "Monaco-10"))
-(add-to-list 'default-frame-alist '(font . "Meslo LG S-10"))
+;;(add-to-list 'default-frame-alist '(font . "Meslo LG S-10"))
 
 
 ;; Add ELPA package repository
