@@ -1,3 +1,4 @@
+man `ls /usr/bin | shuf -n 1`
 export TERM=xterm-256color
 export HOME=/home/gagan/
 export PATH=$HOME/programs/mongodb-linux-x86_64-2.6.5/bin:/usr/local/bin:$PATH
@@ -8,7 +9,8 @@ export PATH=/home/gagan/programs/depot_tools:/home/gagan/programs/Chromshit/chro
 export GOROOT=$HOME/programs/go
 export GOPATH=$HOME/work/Go/
 export PATH=$GOPATH/bin:$PATH
-alias ve='source /home/gagan/work/DjangoProjects/DD/DDe/bin/activate'
+alias ve='source /home/gagan/programs/py3v/bin/activate'
+alias python='python3'
 alias mongod="mongod --dbpath /tmp"
 alias ls='ls --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
 alias ll='ls -l --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
@@ -23,8 +25,6 @@ alias cd2='cd ../..'
 alias cd3='cd ../../../'
 alias cd4='cd ../../../../'
 alias cd5='cd ../../../../../'
-alias mnt='sudo mount /dev/sda5 ~/Music'
-alias music='cd ~/Music'
 alias make='make -j4'
 alias wget='wget -c'
 alias emacs='emacs -nw'
@@ -57,3 +57,4 @@ extr ()
 }
 
 #alias wifirange='sudo watch -n1 "awk 'NR==3 {print \"WiFi Signal Strength = \" \$3 \"00 %\"}''' /proc/net/wireless"'
+
