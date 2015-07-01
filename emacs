@@ -26,7 +26,7 @@
         ac-php ac-python
         ac-html ac-html-bootstrap
         ac-clang ac-c-headers
-        ace-window cmake-mode
+        cmake-mode
         coffee-mode color-theme-monokai
         color-theme-molokai
         command-t dart-mode
@@ -39,7 +39,7 @@
         rust-mode
         smartparens
         ssh spotify
-        svg django-mode
+        django-mode
         django-snippets
         dpaste undo-tree
         redo+))
@@ -258,7 +258,7 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-    ("31a01668c84d03862a970c471edbd377b2430868eccf5e8a9aec6831f1a0908d" default))))
+    ("4cf3221feff536e2b3385209e9b9dc4c2e0818a69a1cdb4b522756bcdf4e00a4" "31a01668c84d03862a970c471edbd377b2430868eccf5e8a9aec6831f1a0908d" default))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
