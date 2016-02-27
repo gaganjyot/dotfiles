@@ -1,0 +1,16 @@
+#HOME
+export HOME=/home/gagan
+
+#DATABASES
+PATH=$HOME/programs/mongodb-linux-x86_64-3.2.1/bin:/usr/local/bin:$PATH
+PATH=$HOME/programs/neo4j-community-2.3.2/bin:$PATH
+
+#PROGRAMMING LANGUAGES
+#GO
+PATH=$HOME/programs/go/bin:/usr/local/bin:$PATH
+
+#GO ENVIRONMENT
+export GOROOT=$HOME/programs/go
+PATH=$GOROOT/bin:$PATH
+export GOPATH=$HOME/work/Go
+export PATH=$GOPATH/bin:$PATH

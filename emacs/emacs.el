@@ -1,58 +1,5 @@
 (require 'package)
 (package-initialize)
-;; Add ELPA package repository
-(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                         ("marmalade" . "http://marmalade-repo.org/packages/")
-                         ("melpa" . "http://melpa.milkbox.net/packages/")))
-
-
-(setq required-pkgs
-      '(auto-complete
-        color-theme-solarized zenburn-theme
-        go-mode go-eldoc
-        clojure-mode js2-mode
-        markdown-mode php-mode
-        cider idomenu
-        neotree
-        vala-mode
-        web-mode
-        browse-kill-ring
-        anzu ;; show number of search matches
-        ido-vertical-mode
-        paredit  jedi
-        php+-mode
-        python-mode
-        python-django
-        ac-php ac-python
-        ac-html ac-html-bootstrap
-        ac-clang ac-c-headers
-        cmake-mode
-        coffee-mode color-theme-monokai
-        color-theme-molokai
-        command-t dart-mode
-        function-args
-        gist glsl-mode
-        go-autocomplete
-        go-play
-        lua-mode
-        pomodoro
-        rust-mode
-        smartparens
-        ssh spotify
-        django-mode
-        django-snippets
-        dpaste undo-tree
-        redo+))
-
-;; Installs missing packages
-(defun install-missing-packages ()
-  "Installs required packages that are missing"
-  (interactive)
-  (mapc (lambda (package)
-          (or (package-installed-p package)
-              (package-install package)))
-        required-pkgs)
-  (message "Installed all missing packages!"))
 
 ;; No Splash Screen
 (setq inhibit-splash-screen t)
@@ -65,15 +12,8 @@
 (set-fringe-mode 0)
 
 ;; Indentation
-(setq-default indent-tabs-mode nil)
-(setq indent-tab-mode nil)
 (setq-default tab-width 4)
-(setq c-basic-indent 2)
 (global-set-key (kbd "RET") 'newline-and-indent)
-
-;; Enable utf-8 in term mode
-(set-terminal-coding-system 'utf-8-unix)
-(prefer-coding-system 'utf-8)
 
 ;; delete selected text
 (delete-selection-mode t)
@@ -95,8 +35,11 @@
 ;; use ido vertical
 (ido-vertical-mode t)
 
+(require 'smex)
+(smex-initialize)
+
 ;; my theme
-(load-theme 'sanityinc-solarized-dark t)
+(load-theme 'monokai t)
 (setq linum-format "%4i\u2502")
 
 ;; Enable Auto-Complete
@@ -125,26 +68,35 @@
 (setq make-backup-files nil)
 (setq auto-save-default nil)
 
-;; Vala mode
-(require 'cl) ; workround for cl mode bug for vala
-(autoload 'vala-mode "vala-mode.el" "Major mode for editing Vala code." t)
-(add-to-list 'auto-mode-alist '("\\.vala$" . vala-mode))
-(add-to-list 'auto-mode-alist '("\\.vapi$" . vala-mode))
-(add-to-list 'file-coding-system-alist '("\\.vala$" . utf-8))
-(add-to-list 'file-coding-system-alist '("\\.vapi$" . utf-8))
-
 ;; C++ Mode
 (c-set-offset 'access-label '-2)
 (c-set-offset 'inclass '4)
-(setq c-default-style "bsd"
-      c-basic-offset 2)
+(setq-default c-basic-offset 4
+      tab-width 4
+      c-default-style "k&r"
+      indent-tabs-mode t)
+
+(prefer-coding-system 'utf-8)
+(set-default-coding-systems 'utf-8)
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+;; Treat clipboard input as UTF-8 string first; compound text next, etc.
+(setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING))
+
 
 (autoload 'rust-mode "rust-mode.el" "Major mode for editing Rust code." t)
 (add-to-list 'auto-mode-alist '("\\.rs$" . rust-mode))
-;;(add-to-list 'auto-mode-alist '("\\.vapi$" . rust-mode))
-(add-to-list 'file-coding-system-alist '("\\.vala$" . utf-8))
-;;(add-to-list 'file-coding-system-alist '("\\.vapi$" . utf-8))
 
+(autoload 'php-mode "php-mode.el" "Major mode for editing PHP code." t)
+(add-to-list 'auto-mode-alist '("\\.php$" . php-mode))
+
+(autoload 'web-mode "web-mode.el" "HTML mode." t)
+(add-to-list 'auto-mode-alist '("\\.html$" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+
+(autoload 'js2-mode "js2-mode" t)
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
 ;; Python Mode
 (require 'jedi)
@@ -216,6 +168,9 @@
 (global-set-key (kbd "<f12>") 'delete-trailing-whitespace)
 (global-set-key (kbd "<f10>") 'fix-indentation)
 
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+
 ;; Clear the eshell
 (defun clear-eshell ()
   (interactive)
@@ -251,17 +206,3 @@
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                          ("marmalade" . "http://marmalade-repo.org/packages/")
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   (quote
-    ("4cf3221feff536e2b3385209e9b9dc4c2e0818a69a1cdb4b522756bcdf4e00a4" "31a01668c84d03862a970c471edbd377b2430868eccf5e8a9aec6831f1a0908d" default))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
