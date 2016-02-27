@@ -29,8 +29,6 @@
         cmake-mode
         coffee-mode color-theme-monokai
         color-theme-molokai
-        command-t dart-mode
-        function-args
         gist glsl-mode
         go-autocomplete
         go-play
