@@ -39,7 +39,7 @@
 (smex-initialize)
 
 ;; my theme
-(load-theme 'monokai t)
+(load-theme 'molokai t)
 (setq linum-format "%4i\u2502")
 
 ;; Enable Auto-Complete

@@ -1,6 +1,6 @@
 # TERMINAL COLORS
 export TERM=xterm-256color
 setxkbmap -option ctrl:nocaps
-source paths
-source shortcuts
-source functions
+source ~/programs/dotfiles/shell/paths
+source ~/programs/dotfiles/shell/shortcuts
+source ~/programs/dotfiles/shell/functions
