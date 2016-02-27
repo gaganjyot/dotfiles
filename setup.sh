@@ -1,4 +1,4 @@
-ln -s ~/.emacs ~/programs/dotfiles/emacs/emacs.el
-ln -s ~/.vimrc ~/programs/dotfiles/vim/vimrc
-ln -s ~/.tmux.conf ~/programs/dotfiles/tmux/tmux.conf
+ln -s ~/programs/dotfiles/emacs/emacs.el ~/.emacs
+ln -s ~/programs/dotfiles/vim/vimrc ~/.vimrc
+ln -s ~/programs/dotfiles/tmux/tmux.conf ~/.tmux.conf
 echo "source ~/programs/dotfiles/config" >> ~/.zshrc
