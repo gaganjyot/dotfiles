@@ -1,0 +1,4 @@
+PATH="/home/gagan/.multirust/toolchains/stable/cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/gagan/programs/mongodb-linux-x86_64-3.2.1/bin:/usr/local/bin:/home/gagan/programs/neo4j-community-2.3.2/bin:/home/gagan/programs/android-sdk-linux/platform-tools:/home/gagan/programs/android-sdk-linux/tools:/home/gagan/programs/go/bin:/usr/local/bin:/home/gagan/work/Go/bin:/home/gagan/programs/android-studio/bin:/home/gagan/programs/sublime_text_3"
+GOROOT="/home/gagan/programs/go"
+GOPATH="/home/gagan/work/Go"
+RUST_SRC_PATH="/home/gagan/programs/rustc-beta/src"
