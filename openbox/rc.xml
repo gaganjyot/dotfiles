@@ -243,12 +243,12 @@ http://git.icculus.org/?p=mikachu/openbox.git;a=blob_plain;f=data/rc.xml;hb=3.4-
     <!-- Keybindings for special/multimedia keys -->
     <keybind key="XF86AudioRaiseVolume">
       <action name="Execute">
-        <execute>amixer -q set Master 2DB+</execute>
+        <execute>amixer -q set Master 5%+</execute>
       </action>
     </keybind>
     <keybind key="XF86AudioLowerVolume">
       <action name="Execute">
-        <execute>amixer -q set Master 2DB-</execute>
+        <execute>amixer -q set Master 5%-</execute>
       </action>
     </keybind>
     <keybind key="XF86AudioMute">
