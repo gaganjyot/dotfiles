@@ -1,18 +1,40 @@
-syntax on
-set paste
-set cursorline
-set colorcolumn=80
-set expandtab
-set tabstop=4
-set shiftwidth=4
-set hlsearch
-colorscheme default 
-set guioptions-=m  "menu bar
-set guioptions-=T  "toolbar
-set guioptions-=r  "scrollbar
-
-" Undo even after exiting the file
-set undofile                " Save undo's after file closes
-set undodir=$HOME/.vim/undo " where to save undo histories
-set undolevels=1000         " How many undos
-set undoreload=10000        " number of lines to save for undo
+set encoding=utf-8                                                                                                                                                                                            
+syntax on                                                                       
+set relativenumber                                                              
+set backspace=indent,eol,start                                                  
+set cursorline                                                                  
+set colorcolumn=80                                                              
+set expandtab                                                                   
+set tabstop=4                                                                   
+set shiftwidth=4                                                                
+set incsearch                                                                   
+set hlsearch                                                                    
+colorscheme default                                                             
+set guioptions-=m  "menu bar                                                    
+set guioptions-=T  "toolbar                                                     
+set guioptions-=r  "scrollbar                                                   
+                                                                                
+" nnoremap <C-space> a                                                          
+ imap <C-space> <Esc>                                                           
+                                                                                
+" Undo even after exiting the file                                              
+set undofile                " Save undo's after file closes                     
+set undodir=$HOME/.vim/undo " where to save undo histories                      
+set undolevels=1000         " How many undos                                    
+set undoreload=10000        " number of lines to save for undo                  
+                                                                                
+let mapleader=","       " leader is comma                                       
+set wildmenu            " visual autocomplete for command menu                  
+nnoremap <leader><space> :nohlsearch<CR>                                        
+set ignorecase                                                                  
+                                                                                
+call plug#begin('~/.vim/plugged')                                               
+                                                                                
+" On-demand loading                                                             
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }                         
+" Plug 'Valloric/YouCompleteMe'                                                 
+" Initialize plugin system                                                      
+call plug#end()                                                                 
+" let g:ycm_global_ycm_extra_conf = "~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"
+~                                                                                                                                                                                                             
+~                                                                                                               
